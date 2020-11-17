@@ -19,16 +19,28 @@ function checkAuth(req, res, next){
       })
   })
 
-  // router.get("/:id", (req, res)=>{
-  //   db.User.findOne({
-  //     where: {
-  //       id: req.params.id
-  //     }
-  //   })
-  //   .then(users=>{
-  //     res.status(201).json(users)
-  //   })
-  // })
+  router.get("/user/:id", (req, res)=>{
+    db.User.findOne({
+      where: {
+        id: req.params.id
+      }
+    })
+    .then(users=>{
+      res.status(201).json(users)
+    })
+  })
+
+  router.get("/current", (req, res)=>{
+    db.User.findOne({
+      where: {
+        id: req.session.user.id
+      }
+    })
+    .then(users=>{
+      res.status(201).json(users)
+    })
+  })
+
 
   router.get("/register", (req,res)=>{ 
     res.status(200).json()
@@ -58,9 +70,16 @@ function checkAuth(req, res, next){
         password: hash
       })
         .then((user)=>{ 
-          res.status(200).json()
+
+          res.status(200).json(user)
         })
+        .catch(error=>{
+          res.status(404).json({
+            error: "Use another email"
+          })
+        }) //============
     })
+    
   
   })
 
@@ -78,23 +97,31 @@ function checkAuth(req, res, next){
     })
       .then((user)=>{
         if(!user){
-          res.send("no user")
+          res.json({
+            error:"No user found"
+          })
           return;
         }
         bcrypt.compare(req.body.password, user.password, (err, matched)=>{
           if(matched){
             req.session.user = user;
             // res.redirect("/")
-            res.status(200).json()
+            res.status(200).json(user)
             console.log(req.session.user)
             // res.send(user)
           }else{
-            res.send("no user")
+            res.json({error: "Wrong password"})
           }
         })
       })
   })
 
+  router.get("/logout", (req, res)=>{
+    
+    // res.status(200).json()
+    req.session.user = null
+    res.redirect("/")
+  })
   //==========product=======================================
   router.get("/:userId/products", (req, res)=>{
     db.Product.findAll({

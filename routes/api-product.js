@@ -7,6 +7,7 @@ const { v4: uuidv4 } = require('uuid');
 const product = require('../models/product');
 
 let uniqueFilename = ""
+let uniqueFilename_update = ""
 
 router.get('/', function(req, res) {
     db.Product.findAll()
@@ -38,7 +39,7 @@ router.get("/productsByUser/:id", (req, res) => {
   db.Product.findAll({
     where: {
       UserId: id
-    }
+    },order:[["createdAt", "DESC"]]
   })
   .then(products =>{
     res.status(201).json(products)
@@ -77,7 +78,7 @@ function uploadFile(req,callback) {
   router.post('/upload',(req,res) => {
   
     uploadFile(req,(photoURL) => {
-      photoURL = `/uploads/${photoURL}`  
+      photoURL = photoURL  //`/uploads/${photoURL}`  
       res.json({
         imageURL: photoURL
       })
@@ -127,17 +128,17 @@ router.post("/",(req,res)=>{
 
 //update product
 router.put("/:id", (req,res)=>{
-    if(!req.body || !req.body.title || !req.body.description || !req.body.price){
-      res.status(400).json({
-        error: "Please Submit all required fields"
-      })
-      return
-    }
+    // if(!req.body || !req.body.title || !req.body.description || !req.body.price){
+    //   res.status(400).json({
+    //     error: "Please Submit all required fields"
+    //   })
+    //   return
+    // }
     db.Product.update({
       title: req.body.title,
       description: req.body.description,
       price: req.body.price,
-      imageURL: "dfsfsaf",
+      imageURL: req.body.imageURL,
       complete: req.body.complete,
       category: req.body.category
       
@@ -211,13 +212,16 @@ router.delete("/:id", (req,res)=>{
           res.status(404).json({
             error: "No product found"
           })
+          
         }
-        return products.createComment({
+        return  db.Comment.create({
           title: req.body.title,
           description: req.body.description,
-          UserId: req.session.user.id
+          UserId: req.session.user.id,
+          ProductId: req.params.productId
           
         })
+        
       })
       .then(comment =>{
         console.log(comment)

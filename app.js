@@ -1,3 +1,5 @@
+// import http from "./bin/www"
+
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
@@ -7,6 +9,8 @@ const bodyParser = require('body-parser');
 const session = require("express-session");
 var cors = require('cors')
 
+const VIEWS_PATH = path.join(__dirname,'/template')
+global.__basedir = __dirname
 
 
 const apiUserRouter = require("./routes/api-user")
@@ -25,12 +29,12 @@ app.use(bodyParser.urlencoded({ extended: true}))
 
 app.use(
     session({
-      key: "UserId",
+      // key: "UserId",
       secret: 'secret', // used to sign the cookie
       resave: false, // update session even w/ no changes
       saveUninitialized: false, // always create a session
       cookie:{
-        expires: 60* 60 * 24
+        expires: 60 * 60 * 24
       }
       
    })
