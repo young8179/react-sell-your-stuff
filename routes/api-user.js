@@ -30,6 +30,18 @@ function checkAuth(req, res, next){
     })
   })
 
+  // router.get("/user/:chatId", (req, res)=>{
+  //   db.User.findOne({
+  //     where: {
+  //       id: req.params.id
+  //     }
+  //   })
+  //   .then(users=>{
+  //     res.status(201).json(users)
+  //   })
+  // })
+
+
   router.get("/current", (req, res)=>{
     db.User.findOne({
       where: {
