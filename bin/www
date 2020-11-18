@@ -7,7 +7,8 @@
 var app = require('../app');
 var debug = require('debug')('react-project:server');
 var http = require('http');
-let socketApi = require('../socketApi');/////////////////////////////////////////
+let socketApi = require('../socketApi');
+///////////////////
 
  
 /**
@@ -22,7 +23,8 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
-socketApi.io.attach(server);    ////////////////////////////////////////////////
+socketApi.io.attach(server);   
+ ////////////////////////////////////////////////
 /**
  * Listen on provided port, on all network interfaces.
  */
