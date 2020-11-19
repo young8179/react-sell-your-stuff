@@ -74,19 +74,14 @@ export default function AddProduct() {
     // }, [])
 
     return (
-        <div className="adding-box">
-            
-            {/* <form action="/users/upload" method="POST" enctype="multipart/form-data">
-                
-                <input type="file" name="photo" />
-                <button type="submit">upload</button>
-
-            </form> */}
-            <Form onSubmit={handleSubmit} inverted>
+        <div className="adding-box container">
+            <div className="row justify-content-center">
+                <div className="col-12 col-lg-7">
+                <Form onSubmit={handleSubmit} inverted>
                 <Form.Field>
                     
                     <input type="file" name="photo"  onChange={handlePhoto} multiple/>
-                    { imageURL ? (<img alt="product img"src={`/uploads/${imageURL.imageURL}`}  style={{width: "400px"}}/>) : ""}
+                    { imageURL ? (<img className="mt-4 mb-4" alt="product img"src={`/uploads/${imageURL.imageURL}`}  style={{width: "400px"}}/>) : ""}
                     
                     <label className="">Title</label>
                     <input placeholder='title' value={title} onChange={(e)=> {setTitle(e.target.value)}}  />
@@ -116,6 +111,12 @@ export default function AddProduct() {
                 <Button type='submit'> submit </Button>
                 {/* <NavLink to="/main">Submit</NavLink> */}
             </Form>
+                </div>
+
+            </div>
+            
+            
+            
         </div>
     )
 }

@@ -12,7 +12,7 @@
 }
 
 .x-button{
-    /* width: 40px !important; */
+    width: 40px !important;
     /* border-radius: 50%; */
 }
 
@@ -43,3 +43,26 @@
     color: gray;
     padding-left: 5px;
 }
+
+.detail-photo-box{
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid white !important;
+    border-radius: 5px;
+}
+
+.detail-img{
+    /* border: 1px solid white !important;
+    border-radius: 5px; */
+    /* height: 100% !important; */
+    /* margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
+}
+
+
+

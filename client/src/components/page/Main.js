@@ -39,8 +39,8 @@ export default function Main() {
                 
             </Grid> */}
 
-            <Grid divided className="main-card">
-                <Grid.Row className="justify-content-start pl-5 ml-5 card-row" >
+            <Grid divided className="main-card ">
+                <Grid.Row className=" justify-content-start  card-row" >
                 { products.map((product, index) => {
                 return <Product key={product.id} product={product} />
             })}

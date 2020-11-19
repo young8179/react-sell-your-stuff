@@ -11,7 +11,7 @@ export default function Product(props) {
             <div className="m-5">
                
 
-                    <Card className="card" >
+                    <Card className="card " >
                         <CardHeader className="card-header"></CardHeader>
                     
                     {complete === false ? (<Image alt="img " src={`/uploads/${imageURL}`} wrapped ui={false} />):

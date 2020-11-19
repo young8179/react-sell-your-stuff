@@ -22,6 +22,7 @@
     position: sticky;
     background-color: black !important;
     border-top: 1px solid white;
+    /* padding-top: 10px */
 }
 
 html{
@@ -57,7 +58,7 @@ main{
 }
 
 .hr{
-    background-color: black;
+    background-color: white;
     /* color: white; */
     /* margin-top: 10%; */
     /* margin-left: 0; */
@@ -76,3 +77,24 @@ main{
 }
 
 
+@media only screen and (max-width: 700px) {
+    .chat-text{
+        font-size: 13px;
+        
+    }
+    .chat-main-left{
+        font-size: 15px !important;
+    }
+
+    .topic-btn{
+        margin-top: 10px;
+        font-size: 10px;
+        border: 1px solid gray;
+        border-radius: 10px;
+        width: 50%;
+    
+    }
+    .chat-main-left-text{
+        font-size: 15px;
+    }
+}

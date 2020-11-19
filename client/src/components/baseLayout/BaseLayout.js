@@ -74,11 +74,40 @@ export default function BaseLayout(props) {
                 {/* <div class="ui divider"></div> */}
                 <Jumbotron className="jumbo" fluid>
                     <Container className="jumbo-con">
-                        <h1>Tap Bid</h1>
-                        <h4>Contact</h4>
-                        <p>
-                            tapbid@tabbid.com
-                        </p>
+                        <div className="row justify-content-center mb-4">
+                            <div className="col-12 mb-5">
+                                <h1 className="text-center mb-5">TAP_BID</h1>
+
+                            </div>
+                        </div>
+
+
+                        <dvi className="row ">
+                            <div className="col-md-4 mb-5 ">
+                                
+                                <p className="text-center">Contact</p>
+                                <p className="text-center">
+                                    tapbid@tabbid.com
+                                </p>
+
+                            </div>
+                            <br/>
+                            <div className="col-md-4 mb-5">
+                                
+                                <p className="text-center">Contact</p>
+                                <p className="text-center">
+                                    tapbid@tabbid.com
+                                </p>
+                            </div>
+                            <br/>
+                            <div className="col-md-4 mb-5">
+                            <p className="text-center">Contact</p>
+                                <p className="text-center">
+                                    tapbid@tabbid.com
+                                </p>
+                            </div>
+
+                        </dvi>
                     </Container>
                     
                 </Jumbotron>     

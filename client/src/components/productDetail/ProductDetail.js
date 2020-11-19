@@ -93,25 +93,36 @@ export default function ProductDetail() {
         <div>
             
 <div className=" container">
-        <div className="row justify-content-center mt-5">
-            <div className="medium-6 col-5">
-              <img className="thumbnail" src={`/uploads/${productDetail.imageURL}`} alt="dd"/>
+        <div className="row align-content-center  mt-5">
+            <div className="medium-6 col-12 col-md-5 detail-photo-box align-middle">
+                  <img className="detail-img align-middle" src={`/uploads/${productDetail.imageURL}`} alt="dd"/>
+              
               
             </div>
-            <div className="medium-6 large-5 col-7">
-                <h3 className="text">{productDetail.title}</h3>
+            <div className="medium-6 large-5 col-12 col-md-7">
+                <h1 className="text">Title</h1>
+                {/* <hr className="hr"/> */}
+                <p className="text">{productDetail.title}</p>
+                <h1 className="text">Price</h1>
+                {/* <hr className="hr"/> */}
+                <p className="text" id="middle-label" >${productDetail.price}</p>
+
+                <h1 className="text">Description</h1>
+                {/* <hr className="hr"/> */}
                 <p className="text">{productDetail.description}</p>
-                <div className="row">
+        <a href={`mailto: ${userP.email}`} className="mt-3 button large expanded button-tap">Tap</a>
                 
-                  <div className="small-9 columns">
-                    <h6 className="text" id="middle-label" >Price: {productDetail.price}</h6>
-                  </div>
-                  <a href={`mailto: ${userP.email}`} className="m-5 button large expanded button-tap">Tap</a>
-                </div>
-      
               </div>
 
         </div>
+
+          
+                
+                
+                 
+                 
+                
+      
         
          
   
@@ -121,7 +132,7 @@ export default function ProductDetail() {
       <div className="row comment-container">
         <hr/>
         
-        <div className="tabs-content col-12 mt-5 mb-5 p-5 comment-box text" data-tabs-content="example-tabs">
+        <div className="tabs-content col-12 mt-5 mb-5 comment-box text" data-tabs-content="example-tabs">
           <div className="tabs-panel is-active row " id="panel1">
             <h1 className="text">Comments</h1>
             

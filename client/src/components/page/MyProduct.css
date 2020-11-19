@@ -10,3 +10,16 @@
 background-image: linear-gradient(92deg, #393939 0%, #ffffff 100%); */
 
 }
+
+.product-mobil{
+    display: none !important;
+}
+
+@media only screen and (max-width: 600px) {
+    .product-screen{
+        display: none !important;
+    }
+    .product-mobil{
+        display: block !important;
+    }
+}

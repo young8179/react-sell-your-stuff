@@ -1,4 +1,4 @@
-.main-left{
+.chat-main-left{
     height: 60vh !important;
     background-color: #003254;
     background-image: linear-gradient(0deg, #003254 0%, #ffffff 100%);
@@ -27,6 +27,12 @@
     
 }
 .row{
+    max-width: 100% !important;
+    padding: 0% !important;
+    margin: 0% !important;
+}
+
+.chat-row{
     max-width: 100% !important;
     padding: 0% !important;
     margin: 0% !important;
@@ -61,4 +67,23 @@
 
 .chat-head{
     margin: 20px !important;
+}
+
+
+.chat-text{
+    
+}
+
+@media only screen and (max-width: 700px) {
+   
+
+    .topic-btn{
+        margin-top: 10px;
+        font-size: 10px;
+        border: 1px solid gray;
+        border-radius: 10px;
+        width: 100%;
+    
+    }
+    
 }
