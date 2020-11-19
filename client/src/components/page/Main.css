@@ -1,0 +1,26 @@
+Html, body{
+    height:100%;
+    background-color: white !important;
+}
+
+.top-img{
+    width: 100%;
+}
+
+.card-row{
+    margin-left: auto !important;
+    margin-right: auto !important;
+    max-width: 100% !important;
+}
+
+/* .main-box{
+    padding: 5%;
+
+} */
+
+
+
+
+.main-card{
+    margin: 5% !important;
+}

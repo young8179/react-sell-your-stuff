@@ -8,6 +8,10 @@ const es6Renderer = require('express-es6-template-engine');
 const bodyParser = require('body-parser');
 const session = require("express-session");
 var cors = require('cors')
+const db = require("./models")
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const store = new SequelizeStore({db:db.sequelize})
+
 
 const VIEWS_PATH = path.join(__dirname,'/template')
 global.__basedir = __dirname
@@ -35,12 +39,12 @@ app.use(
       secret: 'secret', // used to sign the cookie
       resave: false, // update session even w/ no changes
       saveUninitialized: false, // always create a session
-      cookie:{
-        expires: 60 * 60 * 24
-      }
+      store: store
       
    })
   )
+store.sync()
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

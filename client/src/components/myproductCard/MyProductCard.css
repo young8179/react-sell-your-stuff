@@ -1,0 +1,28 @@
+.table {
+    width: 100% !important;
+    margin: 50px, 100px, 0px, 100px !important ;
+}
+
+.button{
+    width: 100px !important;
+}
+
+.table-row{
+    vertical-align: middle !important;
+    
+}
+.spanD{
+    font-size: larger;
+}
+
+.price{
+    color: blue;
+    vertical-align: bottom !important;
+}
+/* .detail{
+    width: 60%;
+} */
+
+.cardImg{
+    width: 1% !important;
+}

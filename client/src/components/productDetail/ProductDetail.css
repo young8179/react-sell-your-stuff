@@ -1,0 +1,45 @@
+.review-text{
+    width: 100% !important;
+}
+
+.name-text{
+    width: 30% !important;
+    color: lightgray !important;
+}
+
+.button-tap{
+    width: 100% !important;
+}
+
+.x-button{
+    /* width: 40px !important; */
+    /* border-radius: 50%; */
+}
+
+.comment-box{
+    background-color: black;
+    border: none !important;
+    /* border-top: 1px solid black !important; */
+}
+
+.comment-container{
+    
+}
+.nameAndComment{
+    font-size: 15px;
+}
+
+.comment-list{
+    list-style-type: none;
+}
+
+.comment-name{
+    font-size: 20px;
+    padding-right: 10px;
+}
+
+.comment-time{
+    font-size: 15px;
+    color: gray;
+    padding-left: 5px;
+}
