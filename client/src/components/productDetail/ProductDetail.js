@@ -75,7 +75,7 @@ export default function ProductDetail() {
                             })
                     })
             })
-    }
+    } 
 
 
     useEffect(() => {
