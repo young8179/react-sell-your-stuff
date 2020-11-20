@@ -16,7 +16,7 @@ export default function ProductDetail() {
     // const {user, setUser} = useContext(LoginContext)
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
-
+  
 
     const removeComment=(commentId)=>{
       fetch(`/api/v2/comments/${commentId}`,{
