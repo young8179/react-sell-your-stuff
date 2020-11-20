@@ -10,7 +10,7 @@ export default function Main() {
     // const [user, setUser] = useState([])
 
     const loadProducts = () => {
-        fetch("http://localhost:3000/api/v2/products")
+        fetch("/api/v2/products")
             .then(res => res.json())
             .then(data => {
                 console.log(data)

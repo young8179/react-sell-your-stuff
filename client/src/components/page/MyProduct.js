@@ -12,7 +12,7 @@ export default function MyProduct() {
     
     useEffect(() => {
       
-            fetch(`http://localhost:3000/api/v2/products/productsByUser/${userID}`)
+            fetch(`/api/v2/products/productsByUser/${userID}`)
                 .then(res => res.json())
                 .then(data => {
                     // console.log(data)
@@ -22,7 +22,7 @@ export default function MyProduct() {
         } , [userID])
 
         const fetchProduct = () =>{
-            fetch(`http://localhost:3000/api/v2/products/productsByUser/${userID}`)
+            fetch(`/api/v2/products/productsByUser/${userID}`)
                 .then(res => res.json())
                 .then(data => {
                     // console.log(data)

@@ -59,16 +59,16 @@ export default function ProductDetail() {
 
 
     const loadProduct = () =>{
-        fetch(`http://localhost:3000/api/v2/products/${productId}`)
+        fetch(`/api/v2/products/${productId}`)
             .then(res=>res.json())
             .then(data=>{
                 setProductDetail(data)
                 console.log(data)
-                fetch(`http://localhost:3000/api/v2/products/${productId}/comments`)
+                fetch(`/api/v2/products/${productId}/comments`)
                     .then(res=> res.json())
                     .then(comment=>{
                         setComment(comment)
-                        fetch(`http://localhost:3000/api/v2/users/user/${data.UserId}`)
+                        fetch(`/api/v2/users/user/${data.UserId}`)
                             .then(res=>res.json())
                             .then(users =>{
                                 setUserP(users)
