@@ -58,4 +58,8 @@ app.use("/api/v2/comments", apiCommentRouter)
 app.use("/api/v2/chats", apiSocketio)
 
 
+app.get('/', function (req, res) {  
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'));});
+
+
 module.exports = app;
