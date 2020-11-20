@@ -44,7 +44,7 @@ export default function BaseLayout(props) {
                             <Nav.Link className="nav-link" as={Link} to="/main">Product</Nav.Link>
                             <Nav.Link className="nav-link" as={Link} to="/add-product">Add Product</Nav.Link>
                             { user && (<Nav.Link className="nav-link" as={Link} to={`/my-product/${user.id}`}>My Product</Nav.Link>)}
-                            <Nav.Link className="nav-link" as={Link} to="/chat">Community</Nav.Link>
+                            <Nav.Link className="nav-link" as={Link} to="/chat">Live Chat</Nav.Link>
                             {/* <Nav.Link href={`/my-product/${user.id}`}>My Product</Nav.Link> */}
                             
                         </Nav>
