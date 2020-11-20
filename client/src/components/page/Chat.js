@@ -22,6 +22,8 @@ export default function Chat() {
     const [textApi, setTextApi] = useState("")
     const [category, setCategory] = useState("")
     const [chat, setChat] = useState([])
+    const [time, setTime] = useState("")
+    
  
     const storeChat = (e)=>{
         e.preventDefault()
@@ -32,6 +34,7 @@ export default function Chat() {
                 category: activeTopic,
                 
                 
+                
             }),
             headers:{
                 "Content-Type": "application/json"
@@ -40,31 +43,72 @@ export default function Chat() {
         .then(res=> res.json())
         .then(data =>{
             // setChat(data);
+
+            setTime(data.createdAt)
             setTextApi("")
             sendChatAction({from: user.name, msg: textValue, topic: activeTopic });
             setTextValue("")
-           
+                  
            
         })
+        
     }
+    // useEffect(()=>{
+    //     fetch("/api/v2/chats")
+    //     .then(res=>res.json())
+    //     .then((data) => {
+    //         for (let i = 0; i < data.length; i++) {
+    //             if(data.category==="Buy"){
+    //                 initState.Buy[i].msg = data.content
+    //             }else if(data.category==="Sell"){
+    //                 initState.Sell[i].msg = data.content
+    //             }else if(data.category==="Trade"){
+    //                 initState.Trade[i].msg = data.content
+    //             }
+    //         }
+    //     })
+    // },[])
+
+
+    // const time = document.getElementById("time")
+    // time.reload()  
+
+
+    // setInterval(function(){ 
+    //     const time = document.getElementById("time")
+    //     time.reload()
+        
+    //  }, 1000);
+
+        // const time = document.getElementById("time")
+        // time.reload()
+
+    // useEffect(()=>{
+    //     document.getElementById("time").reload()
+        
+    // },[chatContext])
 
     useEffect(()=>{
         const box = document.getElementById('chat-box');
-            box.scrollTop = box.scrollHeight;
+        box.scrollTop = box.scrollHeight;
+           
     
             
     },[chatContext])  
             
-    useEffect(()=>{
-        fetch("/api/v2/chats")
-            .then(res=>res.json())
-            .then((data) => {
-                setChat(data)
+
+    // useEffect(()=>{
+        
+        
+    //     fetch("/api/v2/chats")
+    //         .then(res=>res.json())
+    //         .then((data) => {
+    //             setChat(data)
                 
                
-            })
+    //         })
             
-    },[setChat])   
+    // },[setChat])   
 
     useEffect(()=>{
         fetch("/api/v2/users/current")
@@ -107,7 +151,9 @@ export default function Chat() {
                                 <List.Content className="text-left">
                                     <List.Header className="text-left" as='a'>{text.from}</List.Header>
                                     <List.Description>
-                                        <p>{text.msg} <span className="time">{moment(chat.createdAt).fromNow()}</span></p>
+                                        <p>{text.msg} </p>
+                                        {/* <span id="time" className="time">{moment(chat.createdAt).fromNow()}</span>ß */}
+                                        
                                     </List.Description>
                                 </List.Content>
                             </List.Item>): (<List.Item className="chat-text">
@@ -115,13 +161,15 @@ export default function Chat() {
                                     <List.Content>
                                         <List.Header as='a'>{text.from}</List.Header>
                                         <List.Description>
-                                            <p>{text.msg} <span className="time">{moment(chat.createdAt).fromNow()}</span></p>
+                                            <p>{text.msg} </p>
+                                            {/* <span className="time">{moment(time).fromNow()}</span> */}
                                         </List.Description>
                                     </List.Content>
                                 </List.Item>)} 
                                 
                                 </>
                             })}
+                            
 
                         </List>
                     </div>
@@ -131,7 +179,7 @@ export default function Chat() {
                     <div className="row chat-row justify-content-center">
                         <input id="myInput" value={textValue} className="chat-input col-md-10 col-9" type="text" name="message"
                                 onChange={(e)=> setTextValue(e.target.value)}/>
-                            <button type="submit" id="myBtn" className="col-md-1 col-2 btn btn-primary btn-send">Send</button>              
+                            <button type="submit" id="myBtn" className="col-md-1 col-2 btn btn-primary btn-send" >Send</button>              
                             
 
                     </div>

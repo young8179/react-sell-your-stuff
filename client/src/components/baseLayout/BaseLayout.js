@@ -72,9 +72,9 @@ export default function BaseLayout(props) {
 
                 </div> */}
                 {/* <div class="ui divider"></div> */}
-                <Jumbotron className="jumbo" fluid>
+                <Jumbotron className="jumbo jumbo-screen" fluid>
                     <Container className="jumbo-con">
-                        <div className="row justify-content-center mb-4">
+                        <div className="row justify-content-center mb-2">
                             <div className="col-12 mb-5">
                                 <h1 className="text-center mb-5">TAP_BID</h1>
 
@@ -83,7 +83,7 @@ export default function BaseLayout(props) {
 
 
                         <dvi className="row ">
-                            <div className="col-md-4 mb-5 ">
+                            <div className="col-md-4  ">
                                 
                                 <p className="text-center">Contact</p>
                                 <p className="text-center">
@@ -92,20 +92,56 @@ export default function BaseLayout(props) {
 
                             </div>
                             <br/>
-                            <div className="col-md-4 mb-5">
+                            <div className="col-md-4 ">
                                 
-                                <p className="text-center">Contact</p>
+                                <p className="text-center">Copyright</p>
                                 <p className="text-center">
-                                    tapbid@tabbid.com
+                                    Copyright@ 2020 Heeyoung Song
                                 </p>
                             </div>
                             <br/>
-                            <div className="col-md-4 mb-5">
-                            <p className="text-center">Contact</p>
+                            <div className="col-md-4 ">
+                            <p className="text-center">Location</p>
                                 <p className="text-center">
-                                    tapbid@tabbid.com
+                                    Atlanta GA
                                 </p>
                             </div>
+
+                        </dvi>
+                    </Container>
+                    
+                </Jumbotron>
+
+                {/* jumbo mobile=========================================================================== */}
+                <Jumbotron className="jumbo jumbo-mobile" fluid>
+                    <Container className="jumbo-con container">
+                        
+
+                        <dvi className="row justify-content-center">
+                           
+                            <br/>
+                            <div className="col-4 ">
+                                
+                                
+                                <p className="text-center">
+                                    Copyright@ 2020 Heeyoung Song
+                                </p>
+                            </div>
+                            {/* <br/>
+                            <div className="col-4 ">
+                            
+                                <p className="text-center">
+                                    Atlanta GA
+                                </p>
+                            </div>
+                            <div className="col-4  ">
+                                
+                                
+                                <p className="text-left">
+                                    tapbid@tabbid.com
+                                </p>
+
+                            </div> */}
 
                         </dvi>
                     </Container>

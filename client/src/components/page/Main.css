@@ -24,3 +24,12 @@ Html, body{
 .main-card{
     margin: 5% !important;
 }
+
+@media only screen and (max-width: 1100px) {
+    .main-card{
+
+    display: flex;
+    justify-content: center;
+
+    }
+}

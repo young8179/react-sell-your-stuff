@@ -96,8 +96,8 @@ export default function MyProductCard(props) {
         <>
             <Table.Row className="table-row" inverted >
 
-                <Table.Cell className="product-img" textAlign='center' verticalAlign='middle'>
-                    { complete === false ? (<Image  src={`/uploads/${imageURL}`} size='medium' rounded />)
+                <Table.Cell  textAlign='center' verticalAlign='middle'>
+                    { complete === false ? (<Image  className="completeImg" src={`/uploads/${imageURL}`} size='medium' rounded />)
                 :<Image className="completeImg" src={`/uploads/${imageURL}`} size='medium' rounded 
                 label={{
                     as: 'a',

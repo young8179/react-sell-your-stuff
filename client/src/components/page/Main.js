@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { Button, Card, Image } from 'react-bootstrap'
-import { Grid, GridColumn, Header } from 'semantic-ui-react'
-import footerImg from "../img/2-2.png"
+import { Image } from 'react-bootstrap'
+import { Grid } from 'semantic-ui-react'
 import topImg from "../img/7_Fotor.png"
 import Product from '../product/Product'
 import "./Main.css"
@@ -26,21 +25,15 @@ export default function Main() {
     }, [])
 
     return (
-        <div className="main-box">
+        <div className="main-box ">
             <div>
                 
                 <Image className="top-img" src={topImg} fluid />
             </div>
-            {/* <Grid >
-                <Grid.Column centered>
-                    <Header as='h1'>Product</Header>
-                </Grid.Column>
-
-                
-            </Grid> */}
+            
 
             <Grid divided className="main-card ">
-                <Grid.Row className=" justify-content-start  card-row" >
+                <Grid.Row className="   card-row " >
                 { products.map((product, index) => {
                 return <Product key={product.id} product={product} />
             })}

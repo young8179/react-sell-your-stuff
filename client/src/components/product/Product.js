@@ -8,7 +8,7 @@ export default function Product(props) {
     const { title, description, price, imageURL, complete, category, createdAt, id } = props.product
     return (
         
-            <div className="m-5">
+            <div className="m-4">
                
 
                     <Card className="card " >

@@ -22,7 +22,12 @@
     position: sticky;
     background-color: black !important;
     border-top: 1px solid white;
+    
     /* padding-top: 10px */
+}
+
+footer{
+    /* max-height: 10%; */
 }
 
 html{
@@ -76,6 +81,11 @@ main{
     border-color: white !important;
 }
 
+.jumbo-mobile{
+    display: none;
+}
+
+
 
 @media only screen and (max-width: 700px) {
     .chat-text{
@@ -96,5 +106,13 @@ main{
     }
     .chat-main-left-text{
         font-size: 15px;
+    }
+
+    .jumbo-mobile{
+        display: block;
+    }
+
+    .jumbo-screen{
+        display: none;
     }
 }
