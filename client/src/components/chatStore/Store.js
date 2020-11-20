@@ -1,6 +1,6 @@
-import React, { createContext, useContext, useEffect, useReducer } from 'react'
+import React, { createContext, useEffect, useReducer } from 'react'
 import io from "socket.io-client"
-import { LoginContext } from '../loginAndRegister/LoginContextProvider'
+
 
 export const ChatContext = createContext()
 // const {user, setUser} = useContext(LoginContext)

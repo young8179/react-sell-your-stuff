@@ -5,9 +5,10 @@ const db = require("../models")
 const formidable= require("formidable")
 const { v4: uuidv4 } = require('uuid');
 const product = require('../models/product');
+const uploadToS3 = require('../upload-to-s3');
 
 let uniqueFilename = ""
-let uniqueFilename_update = ""
+let uniqueFile_path = ""
 
 router.get('/', function(req, res) {
     db.Product.findAll()
@@ -69,31 +70,25 @@ function uploadFile(req,callback) {
         uniqueFilename = `${uuidv4()}.${file.name.split(".").pop()}`
         file.name = uniqueFilename
         file.path = __basedir + '/uploads/' + file.name
+        uniqueFile_path = file.path
     })
     .on('file',(name,file) => {
-      callback(file.name)
+      callback(file)
     })
   
   }
   router.post('/upload',(req,res) => {
   
-    uploadFile(req,(photoURL) => {
-      photoURL = photoURL  //`/uploads/${photoURL}`  
-      res.json({
-        imageURL: photoURL
+    uploadFile(req,(file) => {
+      uploadToS3(file.path)
+      .then(data=>{
+        console.log(data)
+        res.json({
+          imageURL: data.Location
+        })
+
       })
-      // res.render("users/add-product", {
-      //   partials:{
-      //       head: "/partial/head",
-      //       footer: "/partial/footer",
-      //       menu: "/partial/menu"
-            
-      //   },
-      //     locals:{
-      //       imageURL: photoURL,
-      //       error: null
-      //     }
-      // })
+ 
     })
   
   })
@@ -107,11 +102,14 @@ router.post("/",(req,res)=>{
       })
       return
     }
+
+    
+
     db.Product.create({
         title: req.body.title,
         description: req.body.description,
         price: req.body.price,
-        imageURL: uniqueFilename,
+        imageURL: req.body.imageURL,
         // UserId: null
         UserId: req.session.user.id,
         complete: req.body.complete,

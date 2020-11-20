@@ -11,8 +11,7 @@ export default function LoginContextProvider(props) {
             .then(res=>res.json())
             .then((data) => {
                 setUser(data)
-                // props.history("/")
-                // console.log(userGlobal)
+          
             })
     },[])
     return (

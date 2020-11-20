@@ -10,7 +10,7 @@ export default function MyProductCard(props) {
     const [formOpen, setFormOpen] = useState(false)  
     // edit 
     const url = ""
-    const [new_imageURL, setNew_imageURL ] = useState(imageURL)
+    const [new_imageURL, setNew_imageURL ] = useState(null)
     const [new_title, setNew_title ] = useState(title)
     const [new_description, setNew_description ] = useState(description)
     const [new_price, setNew_price ] = useState(price)
@@ -28,7 +28,7 @@ export default function MyProductCard(props) {
                 description: new_description,
                 price: new_price,
                 category: new_category,
-                imageURL: new_imageURL.imageURL
+                imageURL: new_imageURL
             }),
             headers: {
                 "Content-Type": "application/json"
@@ -53,10 +53,9 @@ export default function MyProductCard(props) {
         })
         const file = await res.json()
        
-            setNew_imageURL(file)
+            setNew_imageURL(file.imageURL)
        
-        console.log(new_imageURL)
-        console.log(imageURL)
+  
     }
 
     const completed = (productId) => {
@@ -97,8 +96,8 @@ export default function MyProductCard(props) {
             <Table.Row className="table-row" inverted >
 
                 <Table.Cell  textAlign='center' verticalAlign='middle'>
-                    { complete === false ? (<Image  className="completeImg" src={`/uploads/${imageURL}`} size='medium' rounded />)
-                :<Image className="completeImg" src={`/uploads/${imageURL}`} size='medium' rounded 
+                    { complete === false ? (<Image  className="completeImg" src={imageURL} size='medium' rounded />)
+                :<Image className="completeImg" src={imageURL} size='medium' rounded 
                 label={{
                     as: 'a',
                     color: 'blue',
@@ -136,10 +135,10 @@ export default function MyProductCard(props) {
                 
                     <Form id="editPostForm" onSubmit={() => handleEdit(id)}>
                         <Form.Field>
-                            <Image src={`/uploads/${imageURL}`} size='medium' rounded />
+                            <Image src={imageURL} size='medium' rounded />
                             <h4 className="mb-5">Current Image</h4>
                             <input type="file"  name="photo" onChange={handlePhoto} />
-                            {new_imageURL ? (<img alt="product img" src={`/uploads/${new_imageURL.imageURL}`} style={{ width: "400px" }} />) : ""}
+                            {new_imageURL ? (<img alt="product img" src={new_imageURL} style={{ width: "400px" }} />) : ""}
                             
                             <label>Title</label>
                             <input placeholder='title' value={new_title} onChange={(e) => { setNew_title(e.target.value) }} />
@@ -195,10 +194,10 @@ export default function MyProductCard(props) {
                 
                     <Form id="editPostForm" onSubmit={() => handleEdit(id)}>
                         <Form.Field>
-                            <Image src={`/uploads/${imageURL}`} size='medium' rounded />
+                            <Image src={imageURL} size='medium' rounded />
                             <h4 className="mb-5">Current Image</h4>
                             <input type="file"  name="photo" onChange={handlePhoto} />
-                            {new_imageURL ? (<img alt="product img" src={`/uploads/${new_imageURL.imageURL}`} style={{ width: "400px" }} />) : ""}
+                            {new_imageURL ? (<img alt="product img" src={new_imageURL} style={{ width: "400px" }} />) : ""}
                             
                             <label>Title</label>
                             <input placeholder='title' value={new_title} onChange={(e) => { setNew_title(e.target.value) }} />

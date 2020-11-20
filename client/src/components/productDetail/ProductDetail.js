@@ -63,7 +63,7 @@ export default function ProductDetail() {
             .then(res=>res.json())
             .then(data=>{
                 setProductDetail(data)
-                console.log(data)
+            
                 fetch(`/api/v2/products/${productId}/comments`)
                     .then(res=> res.json())
                     .then(comment=>{
@@ -95,7 +95,7 @@ export default function ProductDetail() {
 <div className=" container">
         <div className="row align-content-center  mt-5">
             <div className="medium-6 col-12 col-md-5 detail-photo-box align-middle">
-                  <img className="detail-img align-middle" src={`/uploads/${productDetail.imageURL}`} alt="dd"/>
+                  <img className="detail-img align-middle" src={productDetail.imageURL} alt="dd"/>
               
               
             </div>

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import "./AddProduct.css"
 import { Button, Form } from 'semantic-ui-react'
-import { NavLink, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { LoginContext } from '../loginAndRegister/LoginContextProvider'
 
 
@@ -31,8 +31,8 @@ export default function AddProduct() {
             body: data
         })
         const file = await res.json()
-        setImageURL(file)
-        console.log(imageURL)
+        setImageURL(file.imageURL)
+ 
     }
 
     const handleSubmit = (e) =>{
@@ -63,15 +63,7 @@ export default function AddProduct() {
         })
     }
 
-    // useEffect(()=>{
-    //     fetch("http://localhost:3000/api/v2/users/login")
-    //         .then(res=> res.json())
-    //         .then((data) => {
-    //             setUser(data)
-    //             // props.history("/")
-    //             // console.log(user)
-    //         })
-    // }, [])
+   
 
     return (
         <div className="adding-box container">
@@ -81,7 +73,7 @@ export default function AddProduct() {
                 <Form.Field>
                     
                     <input type="file" name="photo"  onChange={handlePhoto} multiple/>
-                    { imageURL ? (<img className="mt-4 mb-4" alt="product img"src={`/uploads/${imageURL.imageURL}`}  style={{width: "400px"}}/>) : ""}
+                    { imageURL ? (<img className="mt-4 mb-4" alt="product img"src={imageURL}  style={{width: "400px"}}/>) : ""}
                     
                     <label className="">Title</label>
                     <input placeholder='title' value={title} onChange={(e)=> {setTitle(e.target.value)}}  />

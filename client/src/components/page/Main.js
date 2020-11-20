@@ -13,11 +13,9 @@ export default function Main() {
         fetch("/api/v2/products")
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+              
                 setProducts(data)
-                // setUser(data[1].UserId)
-                // console.log(data)
-                // console.log(user)
+           
             })
     }
     useEffect(() => {

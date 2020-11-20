@@ -14,12 +14,7 @@ export default function Login(props) {
     const [loginStatus, setLoginStatus] = useState(false)
     const loginContext = useContext(LoginContext)
     const [error, setError] = useState("")
-    // const UserContext = createContext({
-    //     user:user
-    // })
-
-
-    // console.log(user)
+   
     const handleSubmit = (e) => {
         e.preventDefault()
         fetch("/api/v2/users/login", {
@@ -44,7 +39,7 @@ export default function Login(props) {
                 } else {
                     loginContext.setUser(data)
                     history.push("/main")
-                    console.log(data)
+                  
 
                 }
 
@@ -52,15 +47,7 @@ export default function Login(props) {
             .catch()
 
     }
-    // useEffect(()=>{
-    //     fetch("http://localhost:3000/api/v2/users/login")
-    //         .then(res=> res.json())
-    //         .then((data) => {
 
-    //             // props.history("/")
-    //             // console.log(user)
-    //         })
-    // }, [])
 
     return (
         <div className="grandParentContaniner">

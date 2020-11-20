@@ -21,13 +21,13 @@ export default function BaseLayout(props) {
         })
     } 
     useEffect(()=>{
-        console.log("get user")
+        
         fetch("/api/v2/users/current")
             .then(res=>res.json())
             .then((data) => {
                 setUser(data)
-                // props.history("/")
-                // console.log(userGlobal)
+                
+               
             })
     },[setUser])
     

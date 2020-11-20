@@ -15,7 +15,7 @@ export default function MyProduct() {
             fetch(`/api/v2/products/productsByUser/${userID}`)
                 .then(res => res.json())
                 .then(data => {
-                    // console.log(data)
+                   
                     setProductsByUser(data)
                     
                 })
@@ -25,7 +25,7 @@ export default function MyProduct() {
             fetch(`/api/v2/products/productsByUser/${userID}`)
                 .then(res => res.json())
                 .then(data => {
-                    // console.log(data)
+                    
                     setProductsByUser(data)
                     
                 })

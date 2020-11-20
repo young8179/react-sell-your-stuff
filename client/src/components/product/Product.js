@@ -14,8 +14,8 @@ export default function Product(props) {
                     <Card className="card " >
                         <CardHeader className="card-header"></CardHeader>
                     
-                    {complete === false ? (<Image alt="img " src={`/uploads/${imageURL}`} wrapped ui={false} />):
-                    (<Image alt="img " src={`/uploads/${imageURL}`} wrapped ui={false} 
+                    {complete === false ? (<Image alt="img " src={imageURL} wrapped ui={false} />):
+                    (<Image alt="img " src={imageURL} wrapped ui={false} 
                     label={{
                         as: 'a',
                         color: 'red',
