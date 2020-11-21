@@ -29,7 +29,7 @@ export default function AddProduct() {
         const res = await fetch("/api/v2/products/upload",{
             method: "POST",
             body: data
-        })
+        }) 
         const file = await res.json()
         setImageURL(file.imageURL)
  
