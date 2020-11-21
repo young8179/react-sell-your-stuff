@@ -80,7 +80,7 @@ function uploadFile(req,callback) {
   router.post('/upload',(req,res) => {
   
     uploadFile(req,(file) => {
-      uploadToS3(file.path)
+      uploadToS3(file.path) 
       .then(data=>{
         console.log(data)
         res.json({
