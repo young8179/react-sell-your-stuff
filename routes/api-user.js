@@ -18,7 +18,7 @@ function checkAuth(req, res, next){
         res.json(users)
       })
   })
-
+ 
   router.get("/user/:id", (req, res)=>{
     db.User.findOne({
       where: {
