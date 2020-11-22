@@ -73,26 +73,6 @@ export default function Store(props) {
             })
         
  },[])
-//  useEffect(()=>{
-//     fetch("/api/v2/chats")
-//     .then(res=>res.json())
-//     .then((data) => {
-//         for (let i = 0; i < data.length; i++) {
-//             if(data.category==="Buy"){
-//                 initState.Buy[i].msg = data.content
-//             }else if(data.category==="Sell"){
-//                 initState.Sell[i].msg = data.content
-//             }else if(data.category==="Trade"){
-//                 initState.Trade[i].msg = data.content
-//             }
-//         }
-//     })
-// },[])
-            
-            
-
-
-        
 
  
 
