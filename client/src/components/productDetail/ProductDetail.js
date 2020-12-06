@@ -13,25 +13,31 @@ export default function ProductDetail() {
     const [productDetail, setProductDetail] = useState([])
     const [comments, setComment] = useState([])
     const [userP, setUserP] = useState([])
-    // const {user, setUser} = useContext(LoginContext)
+    const user= useContext(LoginContext)
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
   
 
     const removeComment=(commentId)=>{
-      fetch(`/api/v2/comments/${commentId}`,{
-        method: "DELETE"
-      })
-      .then(res=>res.json())
-      .then(data=>{
-        fetch(`/api/v2/products/${productId}/comments`)
-          .then(res => res.json())
-          .then(res =>{
-              setComment(res)
-          })
-      })
-    }
+      const selectedComment = comments.find(comment => comment.id === commentId )
+      if(user.user.id === selectedComment.UserId){
+        fetch(`/api/v2/comments/${commentId}`,{
+          method: "DELETE"
+        })
+        .then(res=>res.json())
+        .then(data=>{
+          fetch(`/api/v2/products/${productId}/comments`)
+            .then(res => res.json())
+            .then(res =>{
+                setComment(res)
+            })
+        })
+      }else{
+        alert("This is not your comments")
+      }
 
+    }
+    console.log(user)
     const commentSubmit = (e) =>{
       e.preventDefault()  
       fetch(`/api/v2/products/${productId}/comments`, {
