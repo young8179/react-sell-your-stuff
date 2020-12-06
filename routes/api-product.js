@@ -82,7 +82,7 @@ function uploadFile(req,callback) {
     uploadFile(req,(file) => {
       uploadToS3(file.path) 
       .then(data=>{
-        console.log(data)
+        
         res.json({
           imageURL: data.Location
         })
@@ -222,7 +222,7 @@ router.delete("/:id", (req,res)=>{
         
       })
       .then(comment =>{
-        console.log(comment)
+       
         res.json({
           success: "Comment added",
           comment: comment

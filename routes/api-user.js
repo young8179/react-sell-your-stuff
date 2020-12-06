@@ -119,7 +119,7 @@ function checkAuth(req, res, next){
             req.session.user = user;
             // res.redirect("/")
             res.status(200).json(user)
-            console.log(req.session.user)
+            
             // res.send(user)
           }else{
             res.json({error: "Wrong password"})

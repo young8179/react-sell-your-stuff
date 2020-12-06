@@ -37,7 +37,7 @@ export default function ProductDetail() {
       }
 
     }
-    console.log(user)
+  
     const commentSubmit = (e) =>{
       e.preventDefault()  
       fetch(`/api/v2/products/${productId}/comments`, {
