@@ -4,7 +4,7 @@ import { Image, List } from 'semantic-ui-react'
 import "./Chat.css"
 import { ChatContext } from "../chatStore/Store"
 import { LoginContext } from '../loginAndRegister/LoginContextProvider'
-import moment from 'moment';
+
 
 
 

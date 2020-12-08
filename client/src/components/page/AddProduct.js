@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import "./AddProduct.css"
 import { Button, Form } from 'semantic-ui-react'
 import { useHistory } from 'react-router-dom'

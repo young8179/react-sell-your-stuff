@@ -7,7 +7,7 @@ import "./MyProduct.css"
 export default function MyProduct() {
     const { userID } = useParams();
     const [productsByUser, setProductsByUser] = useState([])
-    const [complete, setComplete] = useState("")
+
 
     
     useEffect(() => {

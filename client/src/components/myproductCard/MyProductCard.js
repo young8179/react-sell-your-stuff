@@ -9,14 +9,14 @@ export default function MyProductCard(props) {
     const { title, description, price, imageURL, createdAt, category, complete, id } = props.productByUser
     const [formOpen, setFormOpen] = useState(false)  
     // edit 
-    const url = ""
+
     const [new_imageURL, setNew_imageURL ] = useState(null)
     const [new_title, setNew_title ] = useState(title)
     const [new_description, setNew_description ] = useState(description)
     const [new_price, setNew_price ] = useState(price)
     const [new_category, setNew_category ] = useState(category)
     const [new_complete, setNew_complete ] = useState(complete)
-    // const [new_imageURL, setNew_ImageURL ] = useState("")
+
     const history = useHistory();
 
     const handleEdit = (productId) => {
