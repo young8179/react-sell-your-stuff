@@ -82,7 +82,7 @@ export default function BaseLayout(props) {
                         </div>
 
 
-                        <dvi className="row ">
+                        <div className="row ">
                             <div className="col-md-4  ">
                                 
                                 <p className="text-center">Contact</p>
@@ -107,7 +107,7 @@ export default function BaseLayout(props) {
                                 </p>
                             </div>
 
-                        </dvi>
+                        </div>
                     </Container>
                     
                 </Jumbotron>
@@ -117,7 +117,7 @@ export default function BaseLayout(props) {
                     <Container className="jumbo-con container">
                         
 
-                        <dvi className="row justify-content-center">
+                        <div className="row justify-content-center">
                            
                             <br/>
                             <div className="col-4 ">
@@ -143,7 +143,7 @@ export default function BaseLayout(props) {
 
                             </div> */}
 
-                        </dvi>
+                        </div>
                     </Container>
                     
                 </Jumbotron>     
