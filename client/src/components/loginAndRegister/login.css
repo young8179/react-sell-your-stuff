@@ -48,9 +48,9 @@ Html, body{
 .register-btn-b{
     margin-left: 10px !important;
 }
-.btn-group{
+/* .btn-group{
     display: flex;
-    }
+    } */
 
 .login-btn{
     height: 40px;

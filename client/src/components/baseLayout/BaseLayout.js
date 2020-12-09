@@ -25,7 +25,10 @@ export default function BaseLayout(props) {
         fetch("/api/v2/users/current")
             .then(res=>res.json())
             .then((data) => {
-                setUser(data)
+                if(!data.error){
+                    setUser(data)
+                }
+
                 
                
             })

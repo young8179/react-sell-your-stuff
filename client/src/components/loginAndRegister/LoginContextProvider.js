@@ -10,7 +10,10 @@ export default function LoginContextProvider(props) {
         fetch("/api/v2/users/current")
             .then(res=>res.json())
             .then((data) => {
-                setUser(data)
+                if(!data.error){
+                    setUser(data)
+                }
+                    
           
             })
     },[])

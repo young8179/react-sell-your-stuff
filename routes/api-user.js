@@ -43,6 +43,11 @@ function checkAuth(req, res, next){
 
 
   router.get("/current", (req, res)=>{
+    if(!req.session || !req.session.user){
+      return res.status(401).json({
+        error:"No login user"
+      })
+    }
     db.User.findOne({
       where: {
         id: req.session.user.id
