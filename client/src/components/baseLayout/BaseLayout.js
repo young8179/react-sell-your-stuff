@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from 'react'
 import { Button, Image, Jumbotron, Nav, Navbar, NavDropdown } from 'react-bootstrap'
 import { Link, useHistory } from 'react-router-dom';
 import { Container } from 'semantic-ui-react';
-import footerImg from "../img/2-2.png"
 import { LoginContext } from '../loginAndRegister/LoginContextProvider';
 import "./BaseLayout.css"
 
