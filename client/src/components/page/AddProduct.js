@@ -19,7 +19,7 @@ export default function AddProduct() {
     const [complete, setComplete ] = useState(false)
     const [category, setCategory] = useState("")
     const history = useHistory();
-    const {user, setUser} = useContext(LoginContext)
+
     
     const handlePhoto = async e =>{
         const files = e.target.files

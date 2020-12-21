@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
 import { Button, Form } from 'react-bootstrap';
-import { Link, NavLink, useHistory } from 'react-router-dom';
+import {useHistory } from 'react-router-dom';
 import { Message } from 'semantic-ui-react';
 import "./login.css"
 
 export default function Register(props) {
-    const [ user, setUser ] = useState([])
     const [ name, setName ] = useState("")
     const [ email, setEmail ] = useState("")
     const [ password, setPassword ] = useState("")
@@ -31,8 +30,7 @@ export default function Register(props) {
         .then(res => res.json())
         .then(data =>{
             if(data.error){
-                // alert(data.error)
-                setError(data.error)
+               setError(data.error)
             }else{
                 
                 history.push('/');

@@ -122,19 +122,6 @@ export default function ProductDetail() {
 
         </div>
 
-          
-                
-                
-                 
-                 
-                
-      
-        
-         
-  
-  
-          
-  
       <div className="row comment-container">
         <hr/>
         

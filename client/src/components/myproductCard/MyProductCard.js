@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
-import { Button, Card, Form, Grid, Image, Label, Modal, Table } from 'semantic-ui-react'
+import { Button,Form, Image, Modal, Table } from 'semantic-ui-react'
 import moment from 'moment';
 import "./MyProductCard.css"
 import { useHistory } from 'react-router-dom';
 
 
 export default function MyProductCard(props) {
-    const { title, description, price, imageURL, createdAt, category, complete, id } = props.productByUser
+    const { title, description, price, imageURL, category, complete, id } = props.productByUser
     const [formOpen, setFormOpen] = useState(false)  
     // edit 
 
@@ -15,7 +15,7 @@ export default function MyProductCard(props) {
     const [new_description, setNew_description ] = useState(description)
     const [new_price, setNew_price ] = useState(price)
     const [new_category, setNew_category ] = useState(category)
-    const [new_complete, setNew_complete ] = useState(complete)
+
 
     const history = useHistory();
 
@@ -63,7 +63,6 @@ export default function MyProductCard(props) {
             method: "PUT",
             body: JSON.stringify({
                 complete: !complete,
-                // imageURL: imageURL
             }),
             headers: {
                 "Content-Type": "application/json"

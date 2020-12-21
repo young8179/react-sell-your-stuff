@@ -7,11 +7,9 @@ import { LoginContext } from './LoginContextProvider';
 
 
 export default function Login(props) {
-    const [user, setUser] = useState(null)
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const history = useHistory();
-    const [loginStatus, setLoginStatus] = useState(false)
     const loginContext = useContext(LoginContext)
     const [error, setError] = useState("")
    
@@ -83,16 +81,6 @@ export default function Login(props) {
                     </Button>
 
                 </Form.Group>
-
-                {/* <Button.Group>
-                        <Button variant="primary" type="submit" className="login-btn">
-                            Login
-                        </Button>
-                            <Button.Or />
-                        <Button className="register-btn-b login-btn" variant="primary" type="text">
-                            <NavLink className="register-btn" to="/register">Register</NavLink>
-                        </Button>
-                    </Button.Group> */}
 
             </Form>
         </div>

@@ -7,7 +7,6 @@ import "./Main.css"
 
 export default function Main() {
     const [products, setProducts] = useState([])
-    // const [user, setUser] = useState([])
 
     const loadProducts = () => {
         fetch("/api/v2/products")

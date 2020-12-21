@@ -3,10 +3,6 @@ import io from "socket.io-client"
 
 
 export const ChatContext = createContext()
-// const {user, setUser} = useContext(LoginContext)
-
-
-
 
 
 const initState = {
