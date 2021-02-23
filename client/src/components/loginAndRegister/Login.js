@@ -37,6 +37,7 @@ export default function Login(props) {
                     history.push("/")
                 } else {
                     loginContext.setUser(data)
+                    loginContext.setMyProduct("My Products")
                     history.push("/main")
                   
 

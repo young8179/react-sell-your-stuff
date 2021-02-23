@@ -8,7 +8,9 @@ import "./BaseLayout.css"
 // export const UserContext = React.createContext()
 export default function BaseLayout(props) {
     const {user, setUser} = useContext(LoginContext)
+    const {myProduct, setMyProduct} = useContext(LoginContext)
     const history = useHistory();
+    
     const logout = ()=>{
         
         fetch("/api/v2/users/logout")
@@ -16,6 +18,7 @@ export default function BaseLayout(props) {
         .then(res=>res.json())
         .then(data=>{
             setUser(null)
+            setMyProduct("")
             history.push("/")
         })
     } 
@@ -26,7 +29,9 @@ export default function BaseLayout(props) {
             .then((data) => {
                 if(!data.error){
                     setUser(data)
-                }
+                    
+                   
+            }
 
                 
                
@@ -45,7 +50,7 @@ export default function BaseLayout(props) {
                         <Nav className="mr-auto nav-right-box">
                             <Nav.Link className="nav-link" as={Link} to="/main">Product</Nav.Link>
                             <Nav.Link className="nav-link" as={Link} to="/add-product">Add Product</Nav.Link>
-                            { user && (<Nav.Link className="nav-link" as={Link} to={`/my-product/${user.id}`}>My Product</Nav.Link>)}
+                            { user ? (<Nav.Link className="nav-link" as={Link} to={`/my-product/${user.id}`}>{myProduct}</Nav.Link>) : ""}
                             <Nav.Link className="nav-link" as={Link} to="/chat">Live Chat</Nav.Link>
                             {/* <Nav.Link href={`/my-product/${user.id}`}>My Product</Nav.Link> */}
                             
