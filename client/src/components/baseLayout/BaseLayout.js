@@ -11,6 +11,7 @@ export default function BaseLayout(props) {
     const {myProduct, setMyProduct} = useContext(LoginContext)
     const history = useHistory();
     
+    
     const logout = ()=>{
         
         fetch("/api/v2/users/logout")
@@ -29,9 +30,9 @@ export default function BaseLayout(props) {
             .then((data) => {
                 if(!data.error){
                     setUser(data)
+                }
                     
                    
-            }
 
                 
                

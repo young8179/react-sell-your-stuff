@@ -119,7 +119,19 @@ router.post("/",(req,res)=>{
         
       })
       .then(products=>{
-        res.status(201).json(products)
+        if(!req.session || !req.session.user){
+          return res.status(401).json({
+            error:"No login user"
+          })
+        }
+        // if(!UserId){
+        //   res.status(404).json({
+        //     error: "Please Login first"
+        //   })
+        // }else{
+          res.status(201).json(products)
+
+        
       })
   })
   
