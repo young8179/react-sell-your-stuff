@@ -57,9 +57,10 @@ export default function AddProduct() {
         })
             
             .then(data => {
-                if(!user){
-                    // alert(data.error)
-                    setError(data.error)
+                if(!user.name){
+                    alert("Please login first")
+                    console.log(error)
+                    // setError(data.error)
                 }else{
                     setTitle("")
                     setDescription("")
@@ -80,15 +81,13 @@ export default function AddProduct() {
             .then((data) => {
                 if(!data.error){
                     setUser(data)
-                }
-                    
-                   
+                }              
 
                 
                
             })
     },[setUser])
-
+console.log(user)
     return (
         
         <div className="adding-box container">
