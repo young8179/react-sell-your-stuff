@@ -55,12 +55,13 @@ export default function AddProduct() {
                 "Content-Type": "application/json"
             }
         })
-            
+            // .then(res=> res.json())
             .then(data => {
                 if(!user.name){
                     alert("Please login first")
-                    console.log(error)
-                    // setError(data.error)
+                    console.log(data)
+                    history.push("/")
+                    setError(data)
                 }else{
                     setTitle("")
                     setDescription("")
@@ -73,6 +74,7 @@ export default function AddProduct() {
 
                 }
         })
+            .catch()
     }
     useEffect(()=>{
         
@@ -87,19 +89,19 @@ export default function AddProduct() {
                
             })
     },[setUser])
-console.log(user)
+console.log(error)
     return (
         
         <div className="adding-box container">
             <div className="row justify-content-center">
                 <div className="col-12 col-lg-7">
                 <Form onSubmit={handleSubmit} inverted>
-                <Form.Field>
                 {error ? (<Message
                         error
                         header='No account info'
                         content='Please login first'
                     />) : ("")}
+                <Form.Field>
                     <input type="file" name="photo"  onChange={handlePhoto} multiple/>
                     { imageURL ? (<img className="mt-4 mb-4" alt="product img"src={imageURL}  style={{width: "400px"}}/>) : ""}
                     

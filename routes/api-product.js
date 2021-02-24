@@ -110,7 +110,6 @@ router.post("/",(req,res)=>{
         description: req.body.description,
         price: req.body.price,
         imageURL: req.body.imageURL,
-        // UserId: null
         UserId: req.session.user.id,
         complete: req.body.complete,
         category: req.body.category
@@ -118,21 +117,24 @@ router.post("/",(req,res)=>{
         
         
       })
+      
       .then(products=>{
         if(!req.session || !req.session.user){
           return res.status(401).json({
             error:"No login user"
           })
         }
-        // if(!UserId){
+        // if(!products){
         //   res.status(404).json({
         //     error: "Please Login first"
         //   })
-        // }else{
+        //   return;
+        // }
           res.status(201).json(products)
 
         
       })
+      
   })
   
 

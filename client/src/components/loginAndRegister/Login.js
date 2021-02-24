@@ -35,6 +35,7 @@ export default function Login(props) {
                     // alert(data.error)
                     setError(data.error)
                     history.push("/")
+                    // console.log(data)
                 } else {
                     loginContext.setUser(data)
                     loginContext.setMyProduct("My Products")
