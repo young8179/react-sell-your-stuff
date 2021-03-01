@@ -18,6 +18,9 @@ export default function Main() {
             })
             setProducts(filtered)
         }
+        if(searchTerm.length < 1){
+            loadProducts()
+        }
     }
     const loadProducts = () => {
         fetch("/api/v2/products")
