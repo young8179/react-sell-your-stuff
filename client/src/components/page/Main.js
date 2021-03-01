@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Button, FormControl, Image, InputGroup } from 'react-bootstrap'
+import { Button, Col, Container, Form, FormControl, Image, InputGroup, Row } from 'react-bootstrap'
 import { Grid } from 'semantic-ui-react'
 import topImg from "../img/7_Fotor.png"
 import Product from '../product/Product'
@@ -7,7 +7,18 @@ import "./Main.css"
 
 export default function Main() {
     const [products, setProducts] = useState([])
+    const [searchTerm, setSearchTerm] = useState("")
 
+    const handleSubmit = (e) =>{
+        e.preventDefault()
+        // setSearchTerm(searchTerm)
+        if(searchTerm){
+            const filtered = products.filter(product =>{
+                return product.description.toLowerCase().includes(searchTerm)
+            })
+            setProducts(filtered)
+        }
+    }
     const loadProducts = () => {
         fetch("/api/v2/products")
             .then(res => res.json())
@@ -28,16 +39,31 @@ export default function Main() {
                 <Image className="top-img" src={topImg} fluid />
             </div>
             <div className="margin">
-            <InputGroup className="mb-3">
-                <FormControl
-                    placeholder="Search"
-                    aria-label="Recipient's username"
-                    aria-describedby="basic-addon2"
-                />
-                <InputGroup.Append>
-                    <Button variant="warning">Button</Button>
-                </InputGroup.Append>
-            </InputGroup>
+            
+                <Form onSubmit = {handleSubmit}>
+                    <Container>
+                        <Row>
+                            <Col sm={10}>
+                                <Form.Group controlId="formBasicEmail">
+                                    <Form.Control type="text" placeholder="Enter product name." value={searchTerm} onChange={(e) => {setSearchTerm(e.target.value)}} />
+                                    <Form.Text className="text-muted">
+                                        Search for product.
+                                    </Form.Text>
+                                </Form.Group>
+                            </Col>
+                            <Col sm={2}>
+                                <Button variant="primary" type="submit">
+                                    search
+                                </Button>
+                            </Col>
+                        </Row>
+                    </Container>
+
+
+
+                </Form>
+
+
             </div>
             <Grid divided className="main-card ">
                 <Grid.Row className="   card-row " >
