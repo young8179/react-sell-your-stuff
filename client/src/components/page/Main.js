@@ -14,7 +14,7 @@ export default function Main() {
         // setSearchTerm(searchTerm)
         if(searchTerm){
             const filtered = products.filter(product =>{
-                return product.title.toLowerCase().includes(searchTerm)
+                return product.title.toLowerCase().includes(searchTerm) || product.description.toLowerCase().includes(searchTerm)
             })
             setProducts(filtered)
         }
