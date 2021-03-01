@@ -14,7 +14,7 @@ export default function Main() {
         // setSearchTerm(searchTerm)
         if(searchTerm){
             const filtered = products.filter(product =>{
-                return product.description.toLowerCase().includes(searchTerm)
+                return product.title.toLowerCase().includes(searchTerm)
             })
             setProducts(filtered)
         }
@@ -23,7 +23,7 @@ export default function Main() {
         fetch("/api/v2/products")
             .then(res => res.json())
             .then(data => {
-              
+                // setSearchTerm("")
                 setProducts(data)
            
             })
