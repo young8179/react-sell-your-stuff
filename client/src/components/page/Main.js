@@ -17,6 +17,7 @@ export default function Main() {
                 return product.title.toLowerCase().includes(searchTerm) || product.description.toLowerCase().includes(searchTerm)
             })
             setProducts(filtered)
+            setSearchTerm("")
         }
         if(searchTerm.length < 1){
             loadProducts()
