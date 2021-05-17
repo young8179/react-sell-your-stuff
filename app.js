@@ -39,7 +39,8 @@ app.use(
       secret: 'secret', // used to sign the cookie
       resave: false, // update session even w/ no changes
       saveUninitialized: false, // always create a session
-      store: store
+      store: store,
+      proxy: true,
       
    })
   )
