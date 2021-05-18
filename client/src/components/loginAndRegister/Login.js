@@ -12,7 +12,7 @@ export default function Login(props) {
     const history = useHistory();
     const loginContext = useContext(LoginContext)
     const [error, setError] = useState("")
-   
+
     const handleSubmit = (e) => {
         e.preventDefault()
         fetch("/api/v2/users/login", {
@@ -25,7 +25,7 @@ export default function Login(props) {
             }),
             headers: {
                 "Content-Type": "application/json"
-                
+
             }
         })
             .then(res => res.json())
@@ -40,8 +40,6 @@ export default function Login(props) {
                     loginContext.setUser(data)
                     loginContext.setMyProduct("My Products")
                     history.push("/main")
-                  
-
                 }
 
             })
@@ -60,7 +58,7 @@ export default function Login(props) {
                     <Form.Control type="email" placeholder="Enter email" value={email} onChange={(e) => { setEmail(e.target.value) }} />
                     <Form.Text className="text-muted">
                         We'll never share your email with anyone else.
-    </Form.Text>
+                    </Form.Text>
                 </Form.Group>
 
                 <Form.Group controlId="formBasicPassword">
@@ -73,17 +71,13 @@ export default function Login(props) {
                     />) : ("")}
                 </Form.Group>
                 <Form.Group className="btn-group">
-
-
                     <Button variant="primary" type="submit" className="login-btn">
                         Login
                     </Button>
                     <Button className="register-btn-b login-btn" variant="primary" type="text">
                         <NavLink className="register-btn" to="/register">Register</NavLink>
                     </Button>
-
                 </Form.Group>
-
             </Form>
         </div>
     )

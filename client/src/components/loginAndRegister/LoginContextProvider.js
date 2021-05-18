@@ -2,9 +2,6 @@ import React, { createContext, useEffect, useState } from 'react'
 export const LoginContext = createContext({
     user:{},
     setUser: () =>{},
-    
-
-    
 })
 export default function LoginContextProvider(props) {
     const [user, setUser ] = useState([])
@@ -16,10 +13,7 @@ export default function LoginContextProvider(props) {
                 if(!data.error){
                     setUser(data)
                     setMyProduct("My product")
-
                 }
-                    
-          
             })
     },[])
     return (
