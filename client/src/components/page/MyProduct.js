@@ -8,28 +8,26 @@ export default function MyProduct() {
     const { userID } = useParams();
     const [productsByUser, setProductsByUser] = useState([])
 
-
-    
     useEffect(() => {
-      
-            fetch(`/api/v2/products/productsByUser/${userID}`)
-                .then(res => res.json())
-                .then(data => {
-                   
-                    setProductsByUser(data)
-                    
-                })
-        } , [userID])
 
-        const fetchProduct = () =>{
-            fetch(`/api/v2/products/productsByUser/${userID}`)
-                .then(res => res.json())
-                .then(data => {
-                    
-                    setProductsByUser(data)
-                    
-                })
-        }
+        fetch(`/api/v2/products/productsByUser/${userID}`)
+            .then(res => res.json())
+            .then(data => {
+
+                setProductsByUser(data)
+
+            })
+    }, [userID])
+
+    const fetchProduct = () => {
+        fetch(`/api/v2/products/productsByUser/${userID}`)
+            .then(res => res.json())
+            .then(data => {
+
+                setProductsByUser(data)
+
+            })
+    }
 
     return (
         <div className="container mt-5 ">
@@ -41,23 +39,21 @@ export default function MyProduct() {
                                 <Table.HeaderCell width={5}>Image</Table.HeaderCell>
                                 <Table.HeaderCell width={7}>Detail</Table.HeaderCell>
                                 <Table.HeaderCell></Table.HeaderCell>
-                                
+
                             </Table.Row>
                         </Table.Header>
                         <Table.Body className="myproduct" inverted>
                             {productsByUser.map((productByUser, index) => {
-                                return <MyProductCard key={productByUser.id} productByUser={productByUser} fetchProduct={fetchProduct}/>
+                                return <MyProductCard key={productByUser.id} productByUser={productByUser} fetchProduct={fetchProduct} />
                             })}
-          
-                        </Table.Body>
-          
 
+                        </Table.Body>
 
                     </Table>
                 </Grid.Row>
 
             </Grid>
-                                  {/* responsive mobil version */}
+            {/* responsive mobil version */}
             <Grid divided className="mb-5 product-mobil" inverted>
                 <Grid.Row className="justify-content-center card-row" >
                     <Table color="orange" key="orange">
@@ -66,18 +62,15 @@ export default function MyProduct() {
                                 <Table.HeaderCell width={5}></Table.HeaderCell>
                                 <Table.HeaderCell width={7}></Table.HeaderCell>
                                 <Table.HeaderCell></Table.HeaderCell>
-                                
+
                             </Table.Row>
                         </Table.Header>
                         <Table.Body className="myproduct" inverted>
                             {productsByUser.map((productByUser, index) => {
-                                return <MyProductCard key={productByUser.id} productByUser={productByUser} fetchProduct={fetchProduct}/>
+                                return <MyProductCard key={productByUser.id} productByUser={productByUser} fetchProduct={fetchProduct} />
                             })}
-          
+
                         </Table.Body>
-          
-
-
                     </Table>
                 </Grid.Row>
 

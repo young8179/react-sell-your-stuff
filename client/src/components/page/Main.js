@@ -9,17 +9,17 @@ export default function Main() {
     const [products, setProducts] = useState([])
     const [searchTerm, setSearchTerm] = useState("")
 
-    const handleSubmit = (e) =>{
+    const handleSubmit = (e) => {
         e.preventDefault()
         // setSearchTerm(searchTerm)
-        if(searchTerm){
-            const filtered = products.filter(product =>{
+        if (searchTerm) {
+            const filtered = products.filter(product => {
                 return product.title.toLowerCase().includes(searchTerm) || product.description.toLowerCase().includes(searchTerm)
             })
             setProducts(filtered)
             setSearchTerm("")
         }
-        if(searchTerm.length < 1){
+        if (searchTerm.length < 1) {
             loadProducts()
         }
     }
@@ -29,7 +29,7 @@ export default function Main() {
             .then(data => {
                 // setSearchTerm("")
                 setProducts(data)
-           
+
             })
     }
     useEffect(() => {
@@ -39,19 +39,19 @@ export default function Main() {
     return (
         <div className="main-box ">
             <div>
-                
+
                 <Image className="top-img" src={topImg} fluid />
             </div>
             <div className="margin">
-            
-                <Form onSubmit = {handleSubmit}>
+
+                <Form onSubmit={handleSubmit}>
                     <Container>
                         <Row>
                             <Col sm={10}>
                                 <Form.Group controlId="formBasicEmail">
-                                    <Form.Control type="text" placeholder="Enter product name." value={searchTerm} onChange={(e) => {setSearchTerm(e.target.value)}} />
+                                    <Form.Control type="text" placeholder="Enter product name." value={searchTerm} onChange={(e) => { setSearchTerm(e.target.value) }} />
                                     <Form.Text className="text-muted">
-                                        Search for product.
+                                        Search Product.
                                     </Form.Text>
                                 </Form.Group>
                             </Col>
@@ -71,16 +71,16 @@ export default function Main() {
             </div>
             <Grid divided className="main-card ">
                 <Grid.Row className="   card-row " >
-                    
-                { products.map((product, index) => {
-                return <Product key={product.id} product={product} />
-            })}
+
+                    {products.map((product, index) => {
+                        return <Product key={product.id} product={product} />
+                    })}
                 </Grid.Row>
             </Grid>
-            
-            
-                            {/* <Image className="top-img" src={footerImg} fluid /> */}
-            
+
+
+            {/* <Image className="top-img" src={footerImg} fluid /> */}
+
         </div>
     )
 }
