@@ -39,16 +39,6 @@ function reducer(state, action) {
     }
 }
 
-
-
-
-
-
-
-
-
-
-
 let socket = io()
 
 export default function Store(props) {

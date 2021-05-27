@@ -91,9 +91,7 @@ export default function Chat() {
     useEffect(()=>{
         const box = document.getElementById('chat-box');
         box.scrollTop = box.scrollHeight;
-           
-    
-            
+ 
     },[chatContext])  
             
 
@@ -119,12 +117,8 @@ export default function Chat() {
             })
     },[setUser])
 
-    
-    
-          
 
     return (
-        
         <div>
             <div className="container mt-5 mb-5 ">
                 <div className="row chat-row bg-dark top justify-content-center ">
@@ -175,17 +169,13 @@ export default function Chat() {
                     </div>
                 </div>
                 <div className="row chat-row bottom mt-3 justify-content-center">
-                <form onSubmit={storeChat} className="col-12">
-                    <div className="row chat-row justify-content-center">
-                        <input id="myInput" value={textValue} className="chat-input col-md-10 col-9" type="text" name="message"
-                                onChange={(e)=> setTextValue(e.target.value)}/>
+                    <form onSubmit={storeChat} className="col-12">
+                        <div className="row chat-row justify-content-center">
+                            <input id="myInput" value={textValue} className="chat-input col-md-10 col-9" type="text" name="message"
+                                    onChange={(e)=> setTextValue(e.target.value)}/>
                             <button type="submit" id="myBtn" className="col-md-1 col-2 btn btn-primary btn-send" >Send</button>              
-                            
-
-                    </div>
-
-                </form>
-
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
