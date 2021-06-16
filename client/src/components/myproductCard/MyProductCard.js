@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button,Form, Image, Modal, Table } from 'semantic-ui-react'
+import { Button, Form, Image, Modal, Table } from 'semantic-ui-react'
 import moment from 'moment';
 import "./MyProductCard.css"
 import { useHistory } from 'react-router-dom';
@@ -7,23 +7,23 @@ import { useHistory } from 'react-router-dom';
 
 export default function MyProductCard(props) {
     const { title, description, price, imageURL, category, complete, id } = props.productByUser
-    const [formOpen, setFormOpen] = useState(false)  
+    const [formOpen, setFormOpen] = useState(false)
     // edit 
 
-    const [new_imageURL, setNew_imageURL ] = useState(null)
-    const [new_title, setNew_title ] = useState(title)
-    const [new_description, setNew_description ] = useState(description)
-    const [new_price, setNew_price ] = useState(price)
-    const [new_category, setNew_category ] = useState(category)
+    const [new_imageURL, setNew_imageURL] = useState(null)
+    const [new_title, setNew_title] = useState(title)
+    const [new_description, setNew_description] = useState(description)
+    const [new_price, setNew_price] = useState(price)
+    const [new_category, setNew_category] = useState(category)
 
 
     const history = useHistory();
 
     const handleEdit = (productId) => {
-        
+
         fetch(`/api/v2/products/${productId}`, {
             method: "PUT",
-            body: JSON.stringify({ 
+            body: JSON.stringify({
                 title: new_title,
                 description: new_description,
                 price: new_price,
@@ -42,20 +42,20 @@ export default function MyProductCard(props) {
             })
     }
 
-    const handlePhoto = async e =>{
+    const handlePhoto = async e => {
         const files = e.target.files
         const data = new FormData()
         data.append("file", files[0])
-        
-        const res = await fetch("/api/v2/products/upload",{
+
+        const res = await fetch("/api/v2/products/upload", {
             method: "POST",
             body: data
         })
         const file = await res.json()
-       
-            setNew_imageURL(file.imageURL)
-       
-  
+
+        setNew_imageURL(file.imageURL)
+
+
     }
 
     const completed = (productId) => {
@@ -94,16 +94,16 @@ export default function MyProductCard(props) {
         <>
             <Table.Row className="table-row" inverted >
 
-                <Table.Cell  textAlign='center' verticalAlign='middle'>
-                    { complete === false ? (<Image  className="completeImg" src={imageURL} size='medium' rounded />)
-                :<Image className="completeImg" src={imageURL} size='medium' rounded 
-                label={{
-                    as: 'a',
-                    color: 'blue',
-                    content: 'Ended',
-                    icon: 'spoon',
-                    ribbon: true,
-                  }}/>}
+                <Table.Cell textAlign='center' verticalAlign='middle'>
+                    {complete === false ? (<Image className="completeImg" src={imageURL} size='medium' rounded />)
+                        : <Image className="completeImg" src={imageURL} size='medium' rounded
+                            label={{
+                                as: 'a',
+                                color: 'blue',
+                                content: 'Ended',
+                                icon: 'spoon',
+                                ribbon: true,
+                            }} />}
 
                     {/* <Image src={`/uploads/${imageURL}`} size='medium' rounded
                     /> */}
@@ -124,51 +124,51 @@ export default function MyProductCard(props) {
 
                     <br />
                     <Modal
-                onClose={() => setFormOpen(false)}
-                onOpen={() => setFormOpen(true)}
-                open={formOpen}
-                trigger={<Button positive>Edit</Button>}
-            >
-                <Modal.Header>Edit Post</Modal.Header>
-                <Modal.Content scrolling>
-                
-                    <Form id="editPostForm" onSubmit={() => handleEdit(id)}>
-                        <Form.Field>
-                            <Image src={imageURL} size='medium' rounded />
-                            <h4 className="mb-5">Current Image</h4>
-                            <input type="file"  name="photo" onChange={handlePhoto} />
-                            {new_imageURL ? (<img alt="product img" src={new_imageURL} style={{ width: "400px" }} />) : ""}
-                            
-                            <label>Title</label>
-                            <input placeholder='title' value={new_title} onChange={(e) => { setNew_title(e.target.value) }} />
-                        </Form.Field>
-                        <Form.TextArea label='Description' placeholder='Detail about product' value={new_description} onChange={(e) => { setNew_description(e.target.value) }} />
-                        <Form.Field>
-                            <label>Price</label>
-                            <input placeholder='$' value={new_price} onChange={(e) => { setNew_price(e.target.value) }} />
-                        </Form.Field>
-                        <select value={new_category} onChange={(e) => { setNew_category(e.target.value) }}>
-                            <option value="Category">Category</option>
-                            <option value="Buy">Buy</option>
-                            <option value="Sell">Sell</option>
-                            <option value="Trade">Trade</option>
-                        </select>
-               
- 
-                        <Form.Field>
-                            {/* <Checkbox label='I agree to the Terms and Conditions' /> */}
-                        </Form.Field>
+                        onClose={() => setFormOpen(false)}
+                        onOpen={() => setFormOpen(true)}
+                        open={formOpen}
+                        trigger={<Button positive>Edit</Button>}
+                    >
+                        <Modal.Header>Edit Post</Modal.Header>
+                        <Modal.Content scrolling>
+
+                            <Form id="editPostForm" onSubmit={() => handleEdit(id)}>
+                                <Form.Field>
+                                    <Image src={imageURL} size='medium' rounded />
+                                    <h4 className="mb-5">Current Image</h4>
+                                    <input type="file" name="photo" onChange={handlePhoto} />
+                                    {new_imageURL ? (<img alt="product img" src={new_imageURL} style={{ width: "400px" }} />) : ""}
+
+                                    <label>Title</label>
+                                    <input placeholder='title' value={new_title} onChange={(e) => { setNew_title(e.target.value) }} />
+                                </Form.Field>
+                                <Form.TextArea label='Description' placeholder='Detail about product' value={new_description} onChange={(e) => { setNew_description(e.target.value) }} />
+                                <Form.Field>
+                                    <label>Price</label>
+                                    <input placeholder='$' value={new_price} onChange={(e) => { setNew_price(e.target.value) }} />
+                                </Form.Field>
+                                <select value={new_category} onChange={(e) => { setNew_category(e.target.value) }}>
+                                    <option value="Category">Category</option>
+                                    <option value="Buy">Buy</option>
+                                    <option value="Sell">Sell</option>
+                                    <option value="Trade">Trade</option>
+                                </select>
 
 
-                    </Form>
-                </Modal.Content>
-                <Modal.Actions>
-                    <Button onClick={() => setFormOpen(false)}>Cancel</Button>
-                    <Button positive form="editPostForm">submit</Button>
-                </Modal.Actions>
+                                <Form.Field>
+                                    {/* <Checkbox label='I agree to the Terms and Conditions' /> */}
+                                </Form.Field>
 
 
-            </Modal>
+                            </Form>
+                        </Modal.Content>
+                        <Modal.Actions>
+                            <Button onClick={() => setFormOpen(false)}>Cancel</Button>
+                            <Button positive form="editPostForm">submit</Button>
+                        </Modal.Actions>
+
+
+                    </Modal>
                     <br />
                     <br />
                     <Button className="button" negative onClick={() => remove(id)}>Remove</Button>
@@ -177,66 +177,66 @@ export default function MyProductCard(props) {
                     <Button className="button" onClick={() => completed(id)}>Complete</Button>
                 </Table.Cell>
 
-                  {/* product cell responsive mobil =========================================================================== */}
-                  <Table.Cell className="table-row myproduct-mobile " textAlign='left'>
+                {/* product cell responsive mobil =========================================================================== */}
+                <Table.Cell className="table-row myproduct-mobile " textAlign='left'>
 
 
                     <br />
                     <Modal
-                onClose={() => setFormOpen(false)}
-                onOpen={() => setFormOpen(true)}
-                open={formOpen}
-                trigger={<Button positive>Edit</Button>}
-            >
-                <Modal.Header>Edit Post</Modal.Header>
-                <Modal.Content scrolling>
-                
-                    <Form id="editPostForm" onSubmit={() => handleEdit(id)}>
-                        <Form.Field>
-                            <Image src={imageURL} size='medium' rounded />
-                            <h4 className="mb-5">Current Image</h4>
-                            <input type="file"  name="photo" onChange={handlePhoto} />
-                            {new_imageURL ? (<img alt="product img" src={new_imageURL} style={{ width: "400px" }} />) : ""}
-                            
-                            <label>Title</label>
-                            <input placeholder='title' value={new_title} onChange={(e) => { setNew_title(e.target.value) }} />
-                        </Form.Field>
-                        <Form.TextArea label='Description' placeholder='Detail about product' value={new_description} onChange={(e) => { setNew_description(e.target.value) }} />
-                        <Form.Field>
-                            <label>Price</label>
-                            <input placeholder='$' value={new_price} onChange={(e) => { setNew_price(e.target.value) }} />
-                        </Form.Field>
-                        <select value={new_category} onChange={(e) => { setNew_category(e.target.value) }}>
-                            <option value="Category">Category</option>
-                            <option value="Buy">Buy</option>
-                            <option value="Sell">Sell</option>
-                            <option value="Trade">Trade</option>
-                        </select>
-               
- 
-                        <Form.Field>
-                            {/* <Checkbox label='I agree to the Terms and Conditions' /> */}
-                        </Form.Field>
+                        onClose={() => setFormOpen(false)}
+                        onOpen={() => setFormOpen(true)}
+                        open={formOpen}
+                        trigger={<Button positive>Edit</Button>}
+                    >
+                        <Modal.Header>Edit Post</Modal.Header>
+                        <Modal.Content scrolling>
+
+                            <Form id="editPostForm" onSubmit={() => handleEdit(id)}>
+                                <Form.Field>
+                                    <Image src={imageURL} size='medium' rounded />
+                                    <h4 className="mb-5">Current Image</h4>
+                                    <input type="file" name="photo" onChange={handlePhoto} />
+                                    {new_imageURL ? (<img alt="product img" src={new_imageURL} style={{ width: "400px" }} />) : ""}
+
+                                    <label>Title</label>
+                                    <input placeholder='title' value={new_title} onChange={(e) => { setNew_title(e.target.value) }} />
+                                </Form.Field>
+                                <Form.TextArea label='Description' placeholder='Detail about product' value={new_description} onChange={(e) => { setNew_description(e.target.value) }} />
+                                <Form.Field>
+                                    <label>Price</label>
+                                    <input placeholder='$' value={new_price} onChange={(e) => { setNew_price(e.target.value) }} />
+                                </Form.Field>
+                                <select value={new_category} onChange={(e) => { setNew_category(e.target.value) }}>
+                                    <option value="Category">Category</option>
+                                    <option value="Buy">Buy</option>
+                                    <option value="Sell">Sell</option>
+                                    <option value="Trade">Trade</option>
+                                </select>
 
 
-                    </Form>
-                </Modal.Content>
-                <Modal.Actions>
-                    <Button onClick={() => setFormOpen(false)}>Cancel</Button>
-                    <Button positive form="editPostForm">submit</Button>
-                </Modal.Actions>
+                                <Form.Field>
+                                    {/* <Checkbox label='I agree to the Terms and Conditions' /> */}
+                                </Form.Field>
 
 
-            </Modal>
-                    
+                            </Form>
+                        </Modal.Content>
+                        <Modal.Actions>
+                            <Button onClick={() => setFormOpen(false)}>Cancel</Button>
+                            <Button positive form="editPostForm">submit</Button>
+                        </Modal.Actions>
+
+
+                    </Modal>
+
                     <Button className="button" negative onClick={() => remove(id)}>Remove</Button>
-                    
+
                     <Button className="button" onClick={() => completed(id)}>Complete</Button>
                 </Table.Cell>
             </Table.Row>
 
 
-            
+
         </>
 
     )
