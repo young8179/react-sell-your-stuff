@@ -36,7 +36,7 @@ export default function Register(props) {
                 history.push('/');
 
             }
-            // if ===================
+            
         })
         .catch()
         

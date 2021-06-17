@@ -8,8 +8,6 @@ import { useHistory } from 'react-router-dom';
 export default function MyProductCard(props) {
     const { title, description, price, imageURL, category, complete, id } = props.productByUser
     const [formOpen, setFormOpen] = useState(false)
-    // edit 
-
     const [new_imageURL, setNew_imageURL] = useState(null)
     const [new_title, setNew_title] = useState(title)
     const [new_description, setNew_description] = useState(description)
