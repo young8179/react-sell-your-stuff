@@ -7,15 +7,15 @@ export const ChatContext = createContext()
 
 const initState = {
     Buy: [
-        { from: "Tap Bid", msg: "Hello, Welcome to Tap Bid" },
+        { from: "Tap Bid(Buy)", msg: "Hello, Welcome to Tap Bid" },
 
     ],
     Sell: [
-        { from: "Tap Bid", msg: "Hello, Welcome to Tap Bid" },
+        { from: "Tap Bid(Sell)", msg: "Hello, Welcome to Tap Bid" },
 
     ],
     Trade: [
-        { from: "Tap Bid", msg: "Hello, Welcome to Tap Bid" },
+        { from: "Tap Bid(Trade)", msg: "Hello, Welcome to Tap Bid" },
 
     ]
 }
